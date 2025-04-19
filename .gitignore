@@ -49,3 +49,6 @@ config/initializers/build_database_for_development.rb
 
 
 node_modules/
+
+# Ignore precompiled assets
+/public/assets
