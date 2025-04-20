@@ -1,10 +1,9 @@
-<p style="color: green"><%= notice %></p>
+<div class="container my-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <%= link_to "← Voltar para proponentes", applicants_path, class: "btn btn-outline-secondary" %>
 
-<%= render @applicant %>
+    <%= button_to "🗑️ Excluir este proponente", @applicant, method: :delete, data: { confirm: "Tem certeza que deseja excluir este proponente?" }, class: "btn btn-danger" %>
+  </div>
 
-<div>
-  <%= link_to "Edit this applicant", edit_applicant_path(@applicant) %> |
-  <%= link_to "Back to applicants", applicants_path %>
-
-  <%= button_to "Destroy this applicant", @applicant, method: :delete %>
+  <%= render "form", applicant: @applicant %>
 </div>

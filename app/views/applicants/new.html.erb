@@ -1,11 +1,9 @@
-<% content_for :title, "New applicant" %>
+<% content_for :title, "Novo proponente" %>
 
-<h1>New applicant</h1>
+<div class="container my-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">   
+    <%= link_to "← Voltar para proponentes", applicants_path, class: "btn btn-outline-secondary" %>
+  </div>
 
-<%= render "form", applicant: @applicant %>
-
-<br>
-
-<div>
-  <%= link_to "Back to applicants", applicants_path %>
+  <%= render "form", applicant: @applicant %>
 </div>
