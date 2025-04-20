@@ -1,15 +1,37 @@
 <div>
   <% if notice %>
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <div class="alert alert-success alert-dismissible fade show position-fixed bottom-0 end-0 mb-3 me-3" role="alert" id="notice-alert">
       <%= notice %>
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
   <% end %>
 
   <% if alert %>
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <div class="alert alert-danger alert-dismissible fade show position-fixed bottom-0 end-0 mb-3 me-3" role="alert" id="alert-alert">
       <%= alert %>
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
   <% end %>
 </div>
+
+<script>
+  // Definindo o tempo de exibição da notificação
+  setTimeout(function() {
+    var noticeAlert = document.getElementById("notice-alert");
+    var alertAlert = document.getElementById("alert-alert");
+
+    if (noticeAlert) {
+      noticeAlert.classList.remove("show");
+      setTimeout(function() {
+        noticeAlert.remove(); // Remove o elemento
+      }, 500);
+    }
+
+    if (alertAlert) {
+      alertAlert.classList.remove("show");
+      setTimeout(function() {
+        alertAlert.remove(); // Remove o elemento
+      }, 500);
+    }
+  }, 8000);
+</script>
