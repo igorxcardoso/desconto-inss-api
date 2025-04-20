@@ -1,6 +1,6 @@
 <div>
   <% if notice %>
-    <div class="alert alert-success alert-dismissible fade show position-fixed bottom-0 end-0 mb-3 me-3" role="alert" id="notice-alert">
+    <div id="notice-alert" class="alert alert-success alert-dismissible fade show position-fixed bottom-0 end-0 mb-3 me-3" role="alert" id="notice-alert">
       <%= notice %>
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
@@ -35,3 +35,10 @@
     }
   }, 8000);
 </script>
+
+<style>
+  #notice-alert {
+    z-index: 1050;
+    margin-bottom: 80px;
+  }
+</style>
