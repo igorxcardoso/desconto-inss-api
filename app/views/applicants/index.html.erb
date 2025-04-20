@@ -1,16 +1,35 @@
-<p style="color: green"><%= notice %></p>
+<% content_for :title, "Proponentes" %>
 
-<% content_for :title, "Applicants" %>
+<div class="container my-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="h3 mb-0">Proponentes</h1>
+    <%= link_to "Novo proponente", new_applicant_path, class: "btn btn-primary" %>
+  </div>
 
-<h1>Applicants</h1>
-
-<div id="applicants">
-  <% @applicants.each do |applicant| %>
-    <%= render applicant %>
-    <p>
-      <%= link_to "Show this applicant", applicant %>
-    </p>
-  <% end %>
+  <div id="applicants">
+    <table class="table table-striped table-hover table-bordered shadow-sm">
+      <thead class="table-light">
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>CPF</th>
+          <th class="text-center">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @applicants.each do |applicant| %>
+          <tr id="<%= dom_id(applicant) %>">
+            <td><%= applicant.id %></td>
+            <td><%= applicant.name %></td>
+            <td><%= applicant.cpf %></td>
+            <td class="text-center">
+              <%= link_to edit_applicant_path(applicant), class: "btn btn-sm btn-outline-primary", title: "Editar" do %>
+                <i class="bi bi-pencil"></i>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
-
-<%= link_to "New applicant", new_applicant_path %>
