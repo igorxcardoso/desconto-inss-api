@@ -1,77 +1,90 @@
-<%= form_with(model: applicant) do |form| %>
-  <% if applicant.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(applicant.errors.count, "error") %> prohibited this applicant from being saved:</h2>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow">
+        <div class="card-body">
+          <h2 class="card-title mb-4 text-center">Cadastro de Candidato</h2>
 
-      <ul>
-        <% applicant.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+          <%= form_with(model: applicant, local: true) do |form| %>
+            <% if applicant.errors.any? %>
+              <div class="alert alert-danger">
+                <h4 class="alert-heading"><%= pluralize(applicant.errors.count, "erro") %> impediram o salvamento:</h4>
+                <ul class="mb-0">
+                  <% applicant.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+
+            <div class="row g-3">
+              <div class="col-md-6">
+                <%= form.label(:name, class: "form-label") %>
+                <%= form.text_field(:name, class: "form-control") %>
+              </div>
+
+              <div class="col-md-6">
+                <%= form.label(:cpf, class: "form-label") %>
+                <%= form.text_field(:cpf, class: "form-control") %>
+              </div>
+
+              <div class="col-md-6">
+                <%= form.label(:birth_date, class: "form-label") %>
+                <%= form.date_field(:birth_date, class: "form-control") %>
+              </div>
+
+              <div class="col-md-6">
+                <%= form.label(:salary, class: "form-label") %>
+                <%= form.text_field(:salary, class: "form-control") %>
+              </div>
+
+              <div class="col-md-6">
+                <%= form.label(:personal_phone, class: "form-label") %>
+                <%= form.text_field(:personal_phone, class: "form-control") %>
+              </div>
+
+              <div class="col-md-6">
+                <%= form.label(:reference_phone, class: "form-label") %>
+                <%= form.text_field(:reference_phone, class: "form-control") %>
+              </div>
+
+              <div class="col-md-8">
+                <%= form.label(:street, class: "form-label") %>
+                <%= form.text_field(:street, class: "form-control") %>
+              </div>
+
+              <div class="col-md-4">
+                <%= form.label(:number, class: "form-label") %>
+                <%= form.text_field(:number, class: "form-control") %>
+              </div>
+
+              <div class="col-md-6">
+                <%= form.label(:neighborhood, class: "form-label") %>
+                <%= form.text_field(:neighborhood, class: "form-control") %>
+              </div>
+
+              <div class="col-md-6">
+                <%= form.label(:city, class: "form-label") %>
+                <%= form.text_field(:city, class: "form-control") %>
+              </div>
+
+              <div class="col-md-6">
+                <%= form.label(:state, class: "form-label") %>
+                <%= form.text_field(:state, class: "form-control") %>
+              </div>
+
+              <div class="col-md-6">
+                <%= form.label(:zip_code, class: "form-label") %>
+                <%= form.text_field(:zip_code, class: "form-control") %>
+              </div>
+            </div>
+
+            <div class="mt-4 d-grid">
+              <%= form.submit("Salvar", class: "btn btn-success", disabled: controller_name == 'applicants' && action_name == 'show') %>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
-  <% end %>
-
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
   </div>
-
-  <div>
-    <%= form.label :cpf, style: "display: block" %>
-    <%= form.text_field :cpf %>
-  </div>
-
-  <div>
-    <%= form.label :birth_date, style: "display: block" %>
-    <%= form.date_field :birth_date %>
-  </div>
-
-  <div>
-    <%= form.label :street, style: "display: block" %>
-    <%= form.text_field :street %>
-  </div>
-
-  <div>
-    <%= form.label :number, style: "display: block" %>
-    <%= form.text_field :number %>
-  </div>
-
-  <div>
-    <%= form.label :neighborhood, style: "display: block" %>
-    <%= form.text_field :neighborhood %>
-  </div>
-
-  <div>
-    <%= form.label :city, style: "display: block" %>
-    <%= form.text_field :city %>
-  </div>
-
-  <div>
-    <%= form.label :state, style: "display: block" %>
-    <%= form.text_field :state %>
-  </div>
-
-  <div>
-    <%= form.label :zip_code, style: "display: block" %>
-    <%= form.text_field :zip_code %>
-  </div>
-
-  <div>
-    <%= form.label :personal_phone, style: "display: block" %>
-    <%= form.text_field :personal_phone %>
-  </div>
-
-  <div>
-    <%= form.label :reference_phone, style: "display: block" %>
-    <%= form.text_field :reference_phone %>
-  </div>
-
-  <div>
-    <%= form.label :salary, style: "display: block" %>
-    <%= form.text_field :salary %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
