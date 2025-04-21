@@ -3,7 +3,16 @@
     <div class="col-md-8">
       <div class="card shadow">
         <div class="card-body">
-          <h2 class="card-title mb-4 text-center">Cadastro de Candidato</h2>
+          <h2 class="text-center mb-4">
+          <h2 class="card-title mb-4 text-center">
+            <% if controller_name == 'applicants' && action_name == 'show' %>
+              Cliente #<%= applicant.id %>
+            <% elsif controller_name == 'applicants' && action_name == 'edit' %>
+              Edição cliente #<%= applicant.id %>
+            <% else %>
+              Cadastro de cliente
+            <% end %>
+          </h2>
 
           <%= form_with(model: applicant, local: true) do |form| %>
             <% if applicant.errors.any? %>
