@@ -1,0 +1,36 @@
+<% content_for :title, "Relatório de Proponentes" %>
+
+<div class="container mt-5 mb-5 pt-5">
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      <div class="chart-container" style="position: relative; height: 100vh; width: 100%;">
+        <canvas id="myChart"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  const ctx = document.getElementById('myChart');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Até R$ 1.045,00', 'De R$ 1.045,01 a R$ 2.089,60', 'De R$ 2.089,61 até R$ 3.134,40', 'De R$ 3.134,41 até R$ 6.101,06'],
+      datasets: [{
+        label: 'Faixas Salariais',
+        data: <%= @data %>,
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
