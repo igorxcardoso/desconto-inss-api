@@ -4,7 +4,7 @@ class ApplicantsController < ApplicationController
 
   # GET /applicants or /applicants.json
   def index
-    @applicants = Applicant.all
+    @applicants = Applicant.page(params[:page]).per(5)
   end
 
   # GET /applicants/1 or /applicants/1.json
