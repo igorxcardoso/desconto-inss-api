@@ -42,9 +42,16 @@
                 <%= form.date_field(:birth_date, class: "form-control") %>
               </div>
 
-              <div class="col-md-6">
-                <%= form.label(:salary, class: "form-label") %>
-                <%= form.text_field(:salary, class: "form-control") %>
+              <div class="row g-1" style="width: 50%;">
+                <div class="col-md-6">
+                  <%= form.label(:salary, "Salário",class: "form-label") %>
+                  <%= form.text_field(:salary, class: "form-control", id: 'salary_input') %>
+                </div>
+
+                <div class="col-md-6">
+                  <%= form.label(:inss_discount, "Desconto INSS", class: "form-label") %>
+                  <%= form.text_field(:inss_discount, class: "form-control", readonly: true, id: 'inss_discount') %>
+                </div>
               </div>
 
               <div class="col-md-6">
@@ -97,3 +104,32 @@
     </div>
   </div>
 </div>
+
+
+<script>
+  document.addEventListener('turbo:load', () => {
+    const salaryInput = document.querySelector('#salary_input');
+
+    if (salaryInput) {
+      salaryInput.addEventListener('input', () => {
+        const salary = parseFloat(salaryInput.value.replace(',', '.'));
+
+        if (isNaN(salary)) return;
+
+        fetch('/inss_calculator', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-Token': document.querySelector("meta[name='csrf-token']").content
+          },
+          body: JSON.stringify({ salary })
+        })
+        .then(response => response.json())
+        .then(data => {
+          const descontoInput = document.querySelector('#inss_discount');
+          descontoInput.value = data.desconto.toFixed(2);
+        });
+      });
+    }
+  });
+</script>

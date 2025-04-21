@@ -41,7 +41,7 @@ class ApplicantsController < ApplicationController
     UpdateSalaryJob.perform_async(@applicant.id, new_salary)
 
     respond_to do |format|
-      if @applicant.update(applicant_params)
+      if @applicant.update(applicant_params.except(:salary, :inss_discount))
         format.html { redirect_to @applicant, notice: "Applicant was successfully updated." }
         format.json { render :show, status: :ok, location: @applicant }
       else
