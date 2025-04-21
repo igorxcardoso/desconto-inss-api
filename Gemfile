@@ -57,6 +57,9 @@ group :development, :test do
 
   # Faker is a library for generating fake data
   gem 'faker'
+
+  # CPF_CNPJ is a library for generating and validating Brazilian CPF and CNPJ numbers
+  gem 'cpf_cnpj'
 end
 
 group :development do
