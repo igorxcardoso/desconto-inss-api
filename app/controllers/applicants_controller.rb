@@ -37,6 +37,9 @@ class ApplicantsController < ApplicationController
 
   # PATCH/PUT /applicants/1 or /applicants/1.json
   def update
+    new_salary = params[:salary].to_f
+    UpdateSalaryJob.perform_async(@applicant.id, new_salary)
+
     respond_to do |format|
       if @applicant.update(applicant_params)
         format.html { redirect_to @applicant, notice: "Applicant was successfully updated." }
