@@ -1,0 +1,27 @@
+version: "3.3"
+services:
+  db:
+    image: postgres:12
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: desconto_inss_api_development
+
+  web:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails server -b 127.0.0.1 -p 3000"
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgres://postgres:postgres@db:5432/desconto_inss_api_development
+      -RAILS_ENV: production
+      SECRET_KEY_BASE: <%= ENV["SECRET_KEY_BASE"] %>
+
+volumes:
+  db_data:
