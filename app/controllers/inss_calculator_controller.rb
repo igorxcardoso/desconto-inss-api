@@ -1,5 +1,4 @@
 class InssCalculatorController < ApplicationController
-
   # GET /inss_calculator
   def create
     salario = params[:salary].to_f

@@ -10,9 +10,9 @@ gem "pg", "~> 1.1"
 gem "puma", ">= 5.0"
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
-# Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
+# Hotwire"s SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"
-# Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
+# Hotwire"s modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
 # Bundle and process CSS [https://github.com/rails/cssbundling-rails]
 gem "cssbundling-rails"
@@ -40,7 +40,7 @@ gem "bootsnap", require: false
 gem "kaminari"
 
 # Background jobs
-gem 'sidekiq'
+gem "sidekiq"
 
 # Authentication and authorization
 gem "devise", "~> 4.9"
@@ -56,21 +56,23 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false
 
   # Faker is a library for generating fake data
-  gem 'faker'
+  gem "faker"
 
   # CPF_CNPJ is a library for generating and validating Brazilian CPF and CNPJ numbers
-  gem 'cpf_cnpj'
+  gem "cpf_cnpj"
 end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+
+  gem "rubocop-rails", require: false
 end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
-  gem 'rspec-rails'
-  gem 'factory_bot_rails'
+  gem "rspec-rails"
+  gem "factory_bot_rails"
 end

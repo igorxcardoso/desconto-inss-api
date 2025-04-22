@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   mount Sidekiq::Web => "/sidekiq"
 
   root to: "home#index"
-  
+
   devise_for :users
   resources :applicants
   resources :applicant_reports, only: %i[index]
