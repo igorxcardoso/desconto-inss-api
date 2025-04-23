@@ -1,0 +1,51 @@
+pt-BR:
+  activerecord:
+    models:
+      applicant: Cliente
+    attributes:
+      applicant:
+        name: Nome
+        cpf: CPF
+        birth_date: Data de Nascimento
+        salary: Salário
+        inss_discount: Desconto INSS
+        personal_phone: Telefone Pessoal
+        reference_phone: Telefone de Referência
+        street: Rua
+        number: Número
+        neighborhood: Bairro
+        city: Cidade
+        state: Estado
+        zip_code: CEP
+  views:
+    applicants:
+      show_title: "Cliente #%{id}"
+      edit_title: "Edição cliente #%{id}"
+      new_title: "Cadastro de cliente"
+      save: "Salvar"
+      back: "← Voltar para proponentes"
+      destroy: "🗑️ Excluir este proponente"
+      confirm_destroy: "Tem certeza que deseja excluir este proponente?"
+      errors_title:
+        one: "1 erro impediu o salvamento:"
+        other: "%{count} erros impediram o salvamento:"
+    pagination:
+      previous: "← Anterior"
+      next: "Próximo →"
+      first: "Primeiro"
+      last: "Último"
+      page: "Página"
+      of: "de"
+      total: "Total"
+      entries: "Entradas"
+      showing: "Mostrando"
+      no_entries: "Nenhum registro encontrado"
+      search: "Pesquisar"
+      search_placeholder: "Pesquisar..."
+      search_no_results: "Nenhum resultado encontrado"
+      search_results: "Resultados da pesquisa"
+      search_results_count:
+        one: "1 resultado encontrado"
+        other: "%{count} resultados encontrados"
+      search_results_empty: "Nenhum resultado encontrado"
+      search_results_empty_description: "Tente ajustar os filtros ou a pesquisa."

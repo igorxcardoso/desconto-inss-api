@@ -6,26 +6,15 @@
           <h2 class="text-center mb-4">
           <h2 class="card-title mb-4 text-center">
             <% if controller_name == 'applicants' && action_name == 'show' %>
-              Cliente #<%= applicant.id %>
+              <%= t('views.applicants.show_title', id: applicant.id) %>
             <% elsif controller_name == 'applicants' && action_name == 'edit' %>
-              Edição cliente #<%= applicant.id %>
+              <%= t('views.applicants.edit_title', id: applicant.id) %>
             <% else %>
-              Cadastro de cliente
+              <%= t('views.applicants.new_title') %>
             <% end %>
           </h2>
 
           <%= form_with(model: applicant, local: true) do |form| %>
-            <% if applicant.errors.any? %>
-              <div class="alert alert-danger">
-                <h4 class="alert-heading"><%= pluralize(applicant.errors.count, "erro") %> impediram o salvamento:</h4>
-                <ul class="mb-0">
-                  <% applicant.errors.full_messages.each do |message| %>
-                    <li><%= message %></li>
-                  <% end %>
-                </ul>
-              </div>
-            <% end %>
-
             <div class="row g-1">
               <div class="col-md-6">
                 <%= form.label(:name, class: "form-label") %>
@@ -33,70 +22,70 @@
               </div>
 
               <div class="col-md-6">
-                <%= form.label(:cpf, 'CPF', class: "form-label") %>
+                <%= form.label(:cpf, class: "form-label") %>
                 <%= form.text_field(:cpf, class: "form-control") %>
               </div>
 
               <div class="col-md-6">
-                <%= form.label(:birth_date, 'Data de Nascimento', class: "form-label") %>
+                <%= form.label(:birth_date, class: "form-label") %>
                 <%= form.date_field(:birth_date, class: "form-control") %>
               </div>
 
               <div class="row g-1" style="width: 50%;">
                 <div class="col-md-6">
-                  <%= form.label(:salary, "Salário",class: "form-label") %>
+                  <%= form.label(:salary, class: "form-label") %>
                   <%= form.text_field(:salary, class: "form-control", id: 'salary_input') %>
                 </div>
 
                 <div class="col-md-6">
-                  <%= form.label(:inss_discount, "Desconto INSS", class: "form-label") %>
+                  <%= form.label(:inss_discount, class: "form-label") %>
                   <%= form.text_field(:inss_discount, class: "form-control", readonly: true, id: 'inss_discount') %>
                 </div>
               </div>
 
               <div class="col-md-6">
-                <%= form.label(:personal_phone, 'Telefone Pessoal', class: "form-label") %>
+                <%= form.label(:personal_phone, class: "form-label") %>
                 <%= form.text_field(:personal_phone, class: "form-control") %>
               </div>
 
               <div class="col-md-6">
-                <%= form.label(:reference_phone, 'Telefone de Referência', class: "form-label") %>
+                <%= form.label(:reference_phone, class: "form-label") %>
                 <%= form.text_field(:reference_phone, class: "form-control") %>
               </div>
 
               <div class="col-md-8">
-                <%= form.label(:street, 'Rua', class: "form-label") %>
+                <%= form.label(:street, class: "form-label") %>
                 <%= form.text_field(:street, class: "form-control") %>
               </div>
 
               <div class="col-md-4">
-                <%= form.label(:number, 'Número', class: "form-label") %>
+                <%= form.label(:number, class: "form-label") %>
                 <%= form.text_field(:number, class: "form-control") %>
               </div>
 
               <div class="col-md-6">
-                <%= form.label(:neighborhood, 'Bairro', class: "form-label") %>
+                <%= form.label(:neighborhood, class: "form-label") %>
                 <%= form.text_field(:neighborhood, class: "form-control") %>
               </div>
 
               <div class="col-md-6">
-                <%= form.label(:city, 'Cidade', class: "form-label") %>
+                <%= form.label(:city, class: "form-label") %>
                 <%= form.text_field(:city, class: "form-control") %>
               </div>
 
               <div class="col-md-6">
-                <%= form.label(:state, 'Estado', class: "form-label") %>
+                <%= form.label(:state, class: "form-label") %>
                 <%= form.text_field(:state, class: "form-control") %>
               </div>
 
               <div class="col-md-6">
-                <%= form.label(:zip_code, 'CEP', class: "form-label") %>
+                <%= form.label(:zip_code, class: "form-label") %>
                 <%= form.text_field(:zip_code, class: "form-control") %>
               </div>
             </div>
 
             <div class="mt-4 d-grid">
-              <%= form.submit("Salvar", class: "btn btn-success", disabled: controller_name == 'applicants' && action_name == 'show') %>
+              <%= form.submit(t('views.applicants.save'), class: "btn btn-success", disabled: controller_name == 'applicants' && action_name == 'show') %>
             </div>
           <% end %>
         </div>
