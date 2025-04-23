@@ -1,2 +1,0 @@
-class ApplicantReport < ApplicationRecord
-end
