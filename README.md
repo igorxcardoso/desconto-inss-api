@@ -1,18 +1,18 @@
 # 💸 Aplicação Desconto INSS
 
-Aplicação desenvolvida com Ruby on Rails, com o objetivo de calcular descontos de INSS com base em faixas salariais. Permite o cadastro de proponentes e a geração de relatórios visuais e estatísticos.
+Aplicação desenvolvida com Ruby on Rails, com o objetivo de calcular descontos de INSS com base em faixas salariais. Permite o cadastro de proponentes e a visualização estatísticos.
 
 ## 🚀 Tecnologias Utilizadas
 
-- **Ruby on Rails** 7+
+- **Ruby on Rails 7**+
 - **PostgreSQL**
-- **Bootstrap** 4/5
+- **Bootstrap 5**
 - **Chart.js**
 - **Sidekiq + Redis**
-- **Kaminari** (paginação)
-- **Rubocop Rails** (linting e estilo)
-- **RSpec** (TDD sugerido)
-- **Docker** (execução portátil - opcional)
+- **Kaminari**
+- **Rubocop**
+- **RSpec**
+- **Docker**
 
 ## 📦 Instalação e Execução
 
