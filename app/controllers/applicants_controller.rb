@@ -29,7 +29,7 @@ class ApplicantsController < ApplicationController
         format.html { redirect_to @applicant, notice: "Applicant was successfully created." }
         format.json { render :show, status: :created, location: @applicant }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { render :new, status: :unprocessable_entity, alert: "Error creating applicant." }
         format.json { render json: @applicant.errors, status: :unprocessable_entity }
       end
     end
@@ -45,7 +45,7 @@ class ApplicantsController < ApplicationController
         format.html { redirect_to @applicant, notice: "Applicant was successfully updated." }
         format.json { render :show, status: :ok, location: @applicant }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html { render :edit, status: :unprocessable_entity, alert: "Error updating applicant." }
         format.json { render json: @applicant.errors, status: :unprocessable_entity }
       end
     end
