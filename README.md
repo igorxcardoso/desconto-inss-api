@@ -35,6 +35,8 @@ cd desconto-inss
 
 ```bash
 docker-compose up --build
+docker-compose run web bundle exec rake db:migrate
+docker-compose run web bundle exec rake db:seed
 ```
 
 Acesse em: [http://localhost:3000](http://localhost:3000)
@@ -49,6 +51,13 @@ redis-server
 bundle exec sidekiq
 rails server
 ```
+
+## 👥 Usuário Padrão
+
+Após rodar os seeds, um usuário padrão é criado:
+
+- **Email:** `teste@teste.com`  
+- **Senha:** `123456`
 
 ## ⚙️ Funcionalidades
 
