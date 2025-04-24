@@ -1,31 +1,60 @@
-# Files in the config/locales directory are used for internationalization and
-# are automatically loaded by Rails. If you want to use locales other than
-# English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more about the API, please read the Rails Internationalization guide
-# at https://guides.rubyonrails.org/i18n.html.
-#
-# Be aware that YAML interprets the following case-insensitive strings as
-# booleans: `true`, `false`, `on`, `off`, `yes`, `no`. Therefore, these strings
-# must be quoted to be interpreted as strings. For example:
-#
-#     en:
-#       "yes": yup
-#       enabled: "ON"
-
 en:
-  hello: "Hello world"
+  activerecord:
+    models:
+      applicant: Applicant
+    attributes:
+      applicant:
+        name: Name
+        cpf: CPF
+        birth_date: Birth Date
+        salary: Salary
+        inss_discount: INSS Discount
+        personal_phone: Personal Phone
+        reference_phone: Reference Phone
+        street: Street
+        number: Number
+        neighborhood: Neighborhood
+        city: City
+        state: State
+        zip_code: ZIP Code
+  views:
+    applicants:
+      show_title: "Applicant #%{id}"
+      edit_title: "Edit Applicant #%{id}"
+      new_title: "New Applicant"
+      save: "Save"
+      back: "← Back to applicants"
+      destroy: "🗑️ Delete this applicant"
+      confirm_destroy: "Are you sure you want to delete this applicant?"
+      errors_title:
+        one: "1 error prevented this record from being saved:"
+        other: "%{count} errors prevented this record from being saved:"
+    pagination:
+      previous: "← Previous"
+      next: "Next →"
+      first: "First"
+      last: "Last"
+      page: "Page"
+      of: "of"
+      total: "Total"
+      entries: "Entries"
+      showing: "Showing"
+      no_entries: "No records found"
+      search: "Search"
+      search_placeholder: "Search..."
+      search_no_results: "No results found"
+      search_results: "Search Results"
+      search_results_count:
+        one: "1 result found"
+        other: "%{count} results found"
+      search_results_empty: "No results found"
+      search_results_empty_description: "Try adjusting your filters or search criteria."
+  devise:
+    sessions:
+      signed_in: "Successfully signed in."
+      signed_out: "Successfully signed out."
+      already_signed_out: "You are already signed out."
+    failure:
+      invalid: "Invalid email or password."
+      not_found_in_database: "Email not found."
+      timeout: "Your session has expired. Please sign in again."
