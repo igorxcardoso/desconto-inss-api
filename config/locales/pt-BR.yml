@@ -49,3 +49,12 @@ pt-BR:
         other: "%{count} resultados encontrados"
       search_results_empty: "Nenhum resultado encontrado"
       search_results_empty_description: "Tente ajustar os filtros ou a pesquisa."
+  devise:
+    sessions:
+      signed_in: "Login realizado com sucesso."
+      signed_out: "Logout realizado com sucesso."
+      already_signed_out: "Você já está deslogado."
+    failure:
+      invalid: "Email ou senha inválidos."
+      not_found_in_database: "Email não encontrado."
+      timeout: "Sua sessão expirou. Por favor, faça login novamente."
