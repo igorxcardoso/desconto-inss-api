@@ -35,8 +35,6 @@ cd desconto-inss
 
 ```bash
 docker-compose up --build
-docker-compose run web bundle exec rake db:migrate
-docker-compose run web bundle exec rake db:seed
 ```
 
 Acesse em: [http://localhost:3000](http://localhost:3000)
